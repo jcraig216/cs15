@@ -1,0 +1,102 @@
+/*
+ * CS 15 Lab 02: Planet Linked Lists
+ *
+ * README
+ * Author: Hayden Wolff, edited by Elizabeth Hom (Sept 2020)
+ *         Updated by Matt R - Feb, 2021
+ * Name: Jack Craig jcraig05
+ * Date: 01/28/2025
+ * 
+ * Note: This is an example README file
+ */
+
+PROGRAM PURPOSE:
+---------------
+    This lab assignment offers CS 15 students with hands on practice with
+    linked lists.
+
+ACKNOWLEDGEMENTS:
+----------------
+    Got a lot of helpful tips from TAs! Additionally, I used my notes from
+    the lecture on Monday in order to create the newNode function.
+
+FILES:
+-----
+
+   planet-driver.cpp: Main driver for the linked list of planets.
+                      Reads in planets from cin, before adding them to two 
+                      lists. Also has space for a JFFE that reverses the first
+                      list.  
+
+    LinkedList.cpp: Implementation of the LinkedList class which includes key
+                    functions regarding the linked list, such as the default 
+                    constructor, print function, destructor, and other helper 
+                    functions.
+         
+
+    LinkedList.h: Interface of LinkedList class, which includes key information
+                  regarding the LinkedList class.
+
+    Planet.cpp: Implementation of Planet class which includes a default and
+                parametrized constructor which creates Planet objects, a print
+                function, and assignment operator.
+
+    Planet.h: Interface of Planet class, which includes key information
+              regarding Planet objects.
+
+
+HOW TO COMPILE/LINK/RUN:
+-----------------------
+    * Compile with "make planet-driver"
+    * Run with "./planet-driver"
+
+DATA STRUCTURES:
+---------------
+
+    The main data structure of this lab is a singly linked list. Inserting at
+    the front of a linked list is O(1). Inserting at the back is
+    O(list_length) (or O(1) if there is a back pointer). Access is O(n) because
+    the worst case run time is if the element that is being looked for is the 
+    last element in the list. A linked list is useful because it can be used
+    dynamically and it is relatively easy to insert and delete nodes. A 
+    disadvantage of linked lists is that it is difficult to access elements
+    quickly, as you cannot directly access elements like with an array and must
+    traverse the list to access elements.
+    ** This section of your README should be quite thorough for homeworks!
+
+TESTING:
+-------
+    ** REPLACE WITH YOUR TESTING STRATEGIES. **
+    You can describe: process of testing (unit tests), bugs you encountered,
+    testing inputs (different sizes and edge cases), base cases you considered
+    while testing. Demonstrate a methodical approach to testing. This section
+    of your README should be quite thorough for homework assignments!
+
+QUESTIONS:
+-------
+    1. What is Valgrind?
+
+    Valgrind is a programming tool that tracks memory during a program.
+    After the program's completion, it gives you a report on how much memory
+    lost and how strong your code is.
+
+
+    2. How do you run Valgrind?
+
+    You can run valgrind by adding "valgrind" before you type your compiled 
+    file.
+
+
+    3. Why is Valgrind useful? What kinds of errors can Valgrind tell you about?
+
+    Valgrind will help you identify seg faults which is extremely useful as
+    those are especially hard to deal with. It will also make sure your program
+    is not inefficient space wise and will catch memory leaks.
+
+
+
+
+NOTE: As stated earlier, this lab comes partially implemented. The Planet class
+      is already written and the much of the Linked List class is also written. 
+      The driver also already is mostly implemented, but students must write 
+      and utilize two insertion functions, as well as the destructor. 
