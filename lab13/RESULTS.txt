@@ -1,0 +1,37 @@
+Results of various timed tests.
+
+A huge goal of this lab is for students to understand not only *how* a sorting
+algorithm is coded, but also under which use cases certain algorithms may be
+preferred over others. 
+
+Here, plot your results for each case. Here, the rows specify which sorting
+algorithm is run, and the columns specify how many numbers, and in what 
+configuration. For example, "1000/Ran" means that a column is testing the 
+specified algorithm on 1000 random numbers. 
+
+As an example,  row for several tests of SelectionPlace is already done for 
+you.
+
+You can make more rows and columns.  Don't worry about the 80 column rule.
+
+Each row contains results for a particular algorithm.
+Each colum contains results for a test of the given size and type.
+Types of data are:  ran (random),    inc (increasing),
+                    dec (decreasing),rep (repeating).
+
+
+And others that you might care to develop.  Describe them here.
+
+
+
+Input
+size/type =>  | 1000/Ran | 1000/Inc | 1000/Dec | 10K/Ran | 
+--------------+-----+-----+-------+-------------------------------------------
+SelectionAux  | 0.003374 | 0.000449 | 0.000436 | 0.470097
+SelectionPlace| 0.000509 | 0.000458 | 0.000453 | 0.044523
+InsertionAux  | 0.000143 | 0.000210 | 0.000058 | 0.020939
+InsertionPlace| 0.000139 | 0.000002 | 0.000261 | 0.014284
+Mergesort     | 0.000159 | 0.000150 | 0.000093 | 0.001839
+Quicksort     | 0.000052 | 0.000211 | 0.000328 | 0.000635
+
+If you feel so inclined, you can plot the numbers!
