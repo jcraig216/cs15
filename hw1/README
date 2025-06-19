@@ -1,0 +1,123 @@
+/******************************************************************************
+* HW 01: ArrayLists
+* CS 15 Spring 2025 
+* README
+* Author: Jack Craig jcraig05
+******************************************************************************/
+
+Program Purpose:
+---------------
+
+    The purpose of these programs are to sort and deal with an array of 
+    characters.
+
+Compile/run:
+-----------
+
+    Compile and Run using the command "unit_test"
+
+
+Files:
+-----
+
+CharArrayList.h: Interface for a simple CharArrayList Class.
+
+CharArrayList.cpp: Implementation of a simple CharArrayList Class.
+    The default constructor for this class initializes an ArrayList to a size
+    of 0, and a capacity of 1. 
+
+unit_tests.h: A unit testing file for the CharArrayList Class. 
+    Runs in conjunction with the unit_test framework to allow for testing of 
+    individual functions.
+
+Makefile: File to build the program.
+
+
+Data Structures:
+---------------
+
+    This main data structure of this lab is an ArrayList, which is a
+    dynamically expanding array. If the number of items is ever equal to the
+    capacity, the array will automatically expand, allowing for an arbitrary 
+    number of elements to be inserted into the ArrayList.
+
+
+Testing:
+-------
+    I made a basic test for each function just to ensure that they each work,
+    but my main goal was insuring that each test provided initially passed. I
+    put most of my trust in my program from that.
+
+Hours Working:
+--------------
+    6 hours.
+
+Time Measurement Questions:
+---------------------------
+    1. Ranking operations by time (Fastest to Slowest)
+        a. Insertion
+            1. Push At Back, this operation is O(1) because it goes right to 
+                the back
+            2. Push at Front, this operation is O(n) because it needs to 
+                shift everything
+            3. InsertAt, this operation is O(n) because it needs to shift 
+                elements at a specific point
+            4. Insert In Order, this operation is O(n) because it needs to 
+                check each element in the list in order to find the correct 
+                position then it needs to shift everything.
+        b. Removal
+            1. Pop from Back, this operation is O(1) because it just lops off
+                the back
+            2. Pop from the Front, this operation is O(n) because it needs to
+                shift all the elements back to fill the gap
+            3. Remove At, this operation is O(n) because it might need to shift
+                all elements after it removes in order to fill the gap
+        c. Access:
+            1. Element At, this operation if O(1) because the elements can
+                just be looked at and accessed
+            2. First, this operation is also O(1) since you are just getting
+                the first element
+            3. Last, this operation is O(1) since you are just getting the last
+                element
+        
+    2. A lot of these functions were pretty similar in speed. Functions that
+        only really deal with the back or just access are pretty similar in
+        speed because they do not need to shift elements and make space.
+        This usually makes the functions that do need to shift things over
+        slower.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
