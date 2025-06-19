@@ -1,0 +1,146 @@
+/*******************************************************************************
+* LAB 01: Unit Testing and ArrayLists
+* CS 15 Spring 2025 
+* README
+* Author: Jack Craig jcraig05
+*******************************************************************************/
+
+Program Purpose:
+---------------
+    The purpose of these programs are to test and implement LinkedLists.
+
+Compile/run:
+-----------
+
+    Compile and Run using the command "unit_test"
+
+
+Acknowledgments:
+---------------
+
+    Thank you TAs for the help!
+
+Files:
+-----
+
+CharLinkedList.h: Interface for a simple CharLinkedList Class.
+
+CharLinkedLsit.cpp: Implementation of a simple CharLinkedList Class.
+    The default constructor for this class initializes an Linked to a size of
+    0, the front pointing to nothing. 
+
+unit_tests.h: A unit testing file for the CharLinkedList Class. 
+    Runs in conjunction with the unit_test framework to allow for testing of 
+    individual functions.
+
+Makefile: File to build the program.
+
+
+Data Structures:
+---------------
+
+    This main data structure of this lab is an LinkedList, which is a 
+    dynamically expanding array. There is a front node that keeps track of the 
+    first element and links it to the next element, creating a list of linked
+    nodes. It is highly efficient at adding and removing from the back however
+    it becomes more inefficient when searching through the list.
+
+
+Testing:
+-------
+
+    I wrote an extensive amount of tests for this assignment in order to ensure
+    that all functions work correctly.
+
+Hours:
+------
+
+    12
+
+Timer Questions:
+----------------
+
+    1. There are three categories of operations listed (insertion, removal, and
+    access). Within each category, list the times each operation took and rank 
+    the operations from fastest to slowest.
+
+        Insertion:
+            1. pushAtFront 3032 Nanoseconds
+            2. pushAtBack 5067396 Nanoseconds
+            3. insertAt middle of list 13398374 Nanoseconds
+
+        Removal:
+            1. popFromFront 3440 Nanoseconds
+            2. popFromBack 4592736 Nanoseconds
+            3. removeAt middle of list 13464225 Nanoseconds
+
+        Access:
+            1. first 674 Nanoseconds
+            2. last 5791953 Nanoseconds
+            3. elementAt middle of list 2283702 Nanoseconds
+
+    2. Discuss these rankings. Why were certain operations so much faster or 
+    slower than others? What are the features of linked lists that cause these
+    disparities?
+
+        The fastes ones usually have a complexity of O(1) {popFromFront, 
+        pushAtFront, first} then the middle ones ranked #2 have a complexity
+        of O(n) in the worst case. Then the slowest ones also have a complexity
+        of O(n) usually.
+
+    3. Now compare these measurements with the measurements you took for HW1. 
+    Which op- erations are faster when using array lists? Which are faster 
+    using linked lists? Why?
+
+        pushAtFront was much faster for LinkedLists but the pushAtBack was much
+        slower. The insertAt times were pretty similar. Accessing was also much
+        slower for a linked list.
+
+
+Questions:
+----------
+
+    1. pushAtFront and popFromFront were much easier to code using a linked
+    list as there is no need to shift every single element in the list like
+    what you had to do with array lists.
+
+    2. Functions like elementAt, insertAt and removeAt were much harder to
+    implement in a linked list as it is much harder to access a certain index
+    using a linked list rather than an arraylist.
+
+    3. I would change the object from CharArrayList to a CharLinkedList. Then
+    I would need to change the element indexing and I would use elementAt in
+    order to do this?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
