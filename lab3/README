@@ -1,0 +1,59 @@
+/**********************************************************
+* CS15 Lab 03: Circular Buggers
+* README
+* Author: Tanya Sinha
+* Modified: Alice Dempsey, August 2019
+*           Juliana Vega, January 2020
+            Kathy Quintanilla, September 2024
+*********************************************************/
+
+Program Purpose: This lab assignment is to learn about CircularBuffers. 
+The idea of a circular array is that the end of the array “wraps around” 
+to the start of the array. 
+In this lab, CS15 students are finding bugs throughout the CircularBuffer, 
+Stack, and Queue classes. Both the Stack and Queue are implemented using an 
+object of the CircularBuffer class. 
+
+
+Acknowledgements: I read about Circular Sequence / Buffer on: 
+http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/8-List/array-queue2.html
+to learn about the data structure. 
+*REPLACE THIS WITH YOUR OWN ACKNOWLEDGMENTS* 
+
+
+Files: 
+        CircularBuffer.cpp: Implementation of a standard CircularBuffer class. 
+        STUDENT TODO: 
+        Find the bugs!
+
+        CircularBuffer.h: Interface of CircularBuffer class. 
+
+        Queue.cpp: Implementation of Queue class.
+        STUDENT TODO:
+        Write an enqueue function that adds a new element to the back of the 
+        queue, a dequeue function that removes the first element in the queue 
+        and returns it. 
+
+        Queue.h: Interface of Queue class. The Queue is implemented using a 
+                CircularBuffer. It has one private data member: CircularBuffer
+                queue.
+
+        Stack.cpp: Implementation of Stack class. 
+        STUDENT TODO:
+        Write a push function that adds a given element to the top of the 
+        stack, a pop function that removes the top element from the stack and 
+        returns it.
+
+        Stack.h: Interface of the Stack class. The Stack is implemented using a
+        CircularBuffer. It has one private data member: CircularBuffer stack.
+
+
+Data Structures: The main data structure of this lab is a circular buffer.
+A circular buffer is a dynamic buffer with the unique property that the
+end of the array "wraps around" to the start of the array. This gives users
+the ability to add elements to the front and remove elements from the front. 
+
+
+Testing: Here describe the following: process of testing (main.cpp, unit 
+tests), mention of bugs you encountered, etc. This section of your REAMDE 
+should be very thorough for homework assignments. 
