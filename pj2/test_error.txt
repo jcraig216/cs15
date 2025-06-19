@@ -1,0 +1,4 @@
+print
+3 hello + print
+{ hello world
+quit

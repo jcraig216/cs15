@@ -1,0 +1,4 @@
+{ 3 4 + } exec print
+{ 5 3 - } exec print
+{ 2 3 * } exec print
+quit

@@ -1,0 +1,96 @@
+/**********************************************************
+* Project 2: CalcYouLater
+* CS 15
+* README
+* Author: Jack Craig
+*********************************************************/
+
+Compile/Run:
+    - Compile using:
+        make
+    - Run for user inputs:
+        ./CalcYouLater
+    - Run for command file inputs:
+        ./CalcYouLater < commands.txt
+
+Program Purpose:
+    The CalcYouLater project is a stack-based calculator that supports basic
+    operations, comparisons, conditional logic, and error handling. It 
+    processes commands from user input, files, or rstrings and executes them
+    using a stack.
+
+Acknowledgements: 
+     Thank you to the TAs for help with the design check off.
+
+
+Files: 
+
+main.cpp:
+     The main file contains unit tests for the Stack, Parser, and Interpreter
+    classes. It ensures that all Phase 1 functionality is working correctly.
+
+Datum.cpp:
+     Implementation of the Datum Class
+
+Datum.h:
+     Interface for the datum class, which represents data
+
+DatumStack.cpp:
+     Implementaiton of the Stack class
+
+DatumStack.h:
+     Interface for the stack class, which manages datum objects
+
+Parser.cpp:
+     Implementaiton of the parser class
+
+Parser.h:
+     Interface for the parser class which reads input and converts it into
+     rstrings or tokens.
+
+RPNCalc.h / RPNCalc.cpp: 
+     Interprets and executes commands, managing the datum stack and error
+     handling
+
+Data Structures:
+     - Stack manages a stack of datum objects using a vector
+
+Architectural Overview:
+     - Datum: stores data
+     - DatumStack: Manages a stack of datum objects using a vector for easy
+                   push/pop operations.
+     -Parser: Reads input streams and parses commands into rstrings
+     -RPNCalc: Executes commands by interacting with DatumStack and Parser.
+     
+
+Testing:
+ - Stack tests:
+    - tested push, pop, top, isEmpty and error handling
+ - Parser tests:
+    - Tested parseRstring, tokeninze, and readCommand
+ - RPNCalc Tests:
+    - Validated atithmetic, comparisons, if commands, and error messages
+
+ Additionally I simulated a full system run and did a multitude of diff testing
+ to ensure correct functionality. As well I included a notes document of what
+ side tests I did to ensure correct functionality.
+
+ Command Files:
+  - test_arithmetic.txt: Basic operations and division by zero
+  - test_error.txt: Invalid operands, empty stack, and malformed rstrings
+  - test_if.txt: Conditional logic with rstrings
+  
+  - I used these files to compare with diff.
+
+Here, inditicate the part of the assignment that you found the most
+challenging. It could be a concept (ie. stacks) or something specific
+to the assignment. This will help us know what to review and what to
+focus on.
+
+- Parsing Rstrings was very challenging and handling all the propper error
+    messaging was challenigng too.
+- Had a lot of trouble diffing with arithmetic as the template gives a weird
+     answer to /0.
+
+Time Spent: 20 Hours phase 1 addtional 40 hours for phase 2
+     total: 60 hours

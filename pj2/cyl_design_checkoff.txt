@@ -1,0 +1,156 @@
+Name: Jack Craig 
+utln: jcraig05       
+
+Answer the questions below, and submit your answers under the
+assignment "CalcYouLater Design Checkoff" on Gradescope.  You must
+sign up for a design checkoff slot with a TA to discuss your provided
+answers (see spec for link).
+
+Unless otherwise specified, your answers below should be *brief*: no
+more than three sentences/question.
+
+        
+1. Are you comfortable using try-catch?  How do you think you would
+   use this in your design for this assignment?
+
+   Lets say my program consists of: 
+
+   funcA() {
+	throw runtime_error() 
+   }
+
+   funcB() {
+       workA()
+       funcA()
+       workB()
+   }
+
+   funcC() {
+       try {
+	    funcB()
+       }
+       catch(runtime_error) {
+	  workC()
+       }
+   }
+
+   I call funcC().  Which of the "work" functions will be called, and
+   in what order?
+
+   Answer: 
+   workA, then workC because funcA will throw an error and the try will stop
+   and go to the catch
+
+2. Run the following example on the reference: 
+
+   ./theCalcYouLater
+   3 { a.txt } + 
+   print 
+
+   What happens after the first command?
+   What happens after the second?
+
+   Answer:
+   The CalcYouLater program is run
+
+    The CalcYouLater recieves an error and does not print anything
+
+
+3. Extend the previous example.  What happens if I try to perform "+"
+   between a string and an integer?  Which elements are popped off the
+   stack and remain popped off?
+
+   Answer: both elements are popped off and return Error:empty Stack
+
+4. What does exec do?  What does file do?  What does if do?
+
+   Answer: Exec executes the rstring as if they were cin commands.
+   file reads the commmands from a file and treats them like they wiere cined.
+   A condtional statement which will check if conditions like 3 4 < is true, 
+   and does { #t } if true and { #f } if not.
+
+
+
+5. Consider the if example from the spec: 
+
+   3 4 < 
+   { #t } { #f } if 
+   print 
+
+   Draw the stack after each Datum is processed. 
+
+Answer: Stack after 3 [3], then 4 [3, 4] then < becomes [true] since 3<4
+then after { #t } [true, { #t }], and after { #f } it becomes 
+[true, { #t }, { #f }]. After if it becomes just [{ #t }] and then print makes
+it just [].
+
+6. How will your program interact with the user? What should happen if your
+   program encounters an error during this interaction?
+
+Answer: I will use cin in order to accept inputs from the user. If the program
+encounters an error, I will display an error message but keep the program going
+unless the error is really bad.
+
+
+7. What classes will you need in your program?  What are the important
+   functions and member variables that those classes will comprise?
+   How will the classes interact (i.e., which classes will be clients
+   of others)?
+
+   What data structures will you use?  It is okay if you use more than
+   three sentences here.  Feel free to provide your answer in list
+   form.
+
+   Answer: 
+      Datum: will be one piece of data
+         vars: int value, string str, bool isRString
+         Functions: getType(), getValue(), toString();
+      Stack: Manages datum objects
+         vars: vector<Datum> Stack / list
+         Functions: push(Datum d), pop(), front(), isEmpty()
+      Commander: Will deal with input commands and turn them into datum
+         vars: string input.
+         functions: dealWithCommand(string cmd), generalize(string input).
+      Excecuter: Excecutes the commands and manages the stack
+         vars: Stack stack, Commander commander.
+         Functions: execute(string cmd), handleError(string msg)
+      Filer: Will read commands from a file
+         vars: string filename 
+         functions: readFile(), processCommands()
+      
+
+
+8. There are three sources of input for processing commands: cin,
+   files, and rstrings.  What C++ data type can allow you to write the
+   same code that handles commands from all three of these sources?
+
+   Answer: std:: istream allows you to use cin, ifstream and istringstream.
+   By using std::istream& you can use all three input sources
+
+
+9. How do you plan to test your program?  What evidence of testing do
+   you plan to submit?
+
+   Answer: I will do extensive unit testing for the whole program.
+
+
+10. What is your timeline for completing this project?  What would you
+    like to have completed, and by which dates?
+
+    Answer: I want to have it completed before the deadline.
+
+
+DESIGN CHECKOFF NOTES:
+
+   - Wrap all the if statements within try catching when trying to do an operation
+      (Adding between a string and a datament is not possible so it will be easier)
+   
+   - if you have a file such as "fact.cyl" you want to convert it into a cyclc
+
+   - Make sure I have a run function that takes in no parameter for running
+
+   - Substring function in order to get rid of the {}
+
+   - Doing file testing and input commands
+
+   - 

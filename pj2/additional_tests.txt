@@ -1,0 +1,117 @@
+This is a notes sheet of all the random tests and diffs I used in order
+to make my file correct.
+
+
+
+vm-hw06{jcraig05}55: ./theCalcYouLater
+{ { 3 4 + } exec print } exec print
+7
+7
+quit
+Thank you for using CalcYouLater.
+vm-hw06{jcraig05}56: ./CalcYouLater
+{ { 3 4 + } exec print } exec print 
+7
+quit
+Thank you for using CalcYouLater.
+
+vm-hw06{jcraig05}105: ./theCalcYouLater
+foo bar baz
+foo: unimplemented
+bar: unimplemented
+baz: unimplemented
+quit
+Thank you for using CalcYouLater.
+vm-hw06{jcraig05}106: ./CalcYouLater
+foo bar baz
+quit
+Thank you for using CalcYouLater.
+
+vm-hw06{jcraig05}109: ./theCalcYouLater
+true { { 3 4 + } exec print } { 0 } if print
+true: unimplemented
+Error: empty_stack
+Error: empty_stack
+quit
+Thank you for using CalcYouLater.
+vm-hw06{jcraig05}110: ./CalcYouLater
+true { { 3 4 + } exec print } { 0 } if print
+true: unimplemented 
+Error: empty_stack
+ 0 
+quit
+Thank you for using CalcYouLater.
+
+
+
+
+
+
+
+
+
+
+
+
+./theCalcYouLater < test_arithmetic.txt > au.gt
+./CalcYouLater  < test_arithmetic.txt > ame.out
+diff au.gt ame.out
+./CalcYouLater  < test_arithmetic.txt
+./theCalcYouLater < test_arithmetic.txt 
+
+
+./theCalcYouLater < test_error.txt > eru.gt
+./CalcYouLater  < test_error.txt > erme.out
+diff eru.gt erme.out
+./theCalcYouLater < test_error.txt
+./CalcYouLater  < test_error.txt
+
+./theCalcYouLater < test_arithmetic.txt
+./CalcYouLater  < test_arithmetic.txt
+
+
+./theCalcYouLater < test_exec.txt > exu.gt
+./CalcYouLater  < test_exec.txt > exme.out
+diff exu.gt exme.out
+./theCalcYouLater < test_exec.txt
+./CalcYouLater  < test_exec.txt
+
+./theCalcYouLater < test_if.txt > ifu.gt
+./CalcYouLater  < test_if.txt > ifme.out
+diff ifu.gt ifme.out
+
+
+Tests:
+1. true false print print
+
+2. { Hello World } exec print
+
+3. { { inner rstring } } exec print
+
+4. 3 4 + print
+
+5. 5 3 - print
+
+6. 3 print pop print
+
+8. true { 5 print } { 0 print } if
+
+9. + print
+
+Outputs:
+
+2. Test output
+vm-hw07{jcraig05}391: ./CalcYouLater
+{ Hello World } exec print
+Hello: unimplemented
+Error: empty stack
+quit
+Thank you for using CalcYouLater.
+vm-hw07{jcraig05}392: ./theCalcYouLater
+{ Hello World } exec print
+Hello: unimplemented
+World: unimplemented
+Error: empty_stack
+
+
+
