@@ -1,0 +1,96 @@
+/*******************************************************************************
+* LAB 01: Unit Testing and ArrayLists
+* CS 15 Spring 2025 
+* README
+* Author: Jack Craig jcraig05
+*******************************************************************************/
+
+NOTE: Below is an example of a README that you can use for your future labs and
+assignments. Steal this format! It will save you points later. Read through the
+file and fill in the TODO's.
+
+Program Purpose:
+---------------
+
+    TODO: Add in the purpose of this program. Remember that a programs purpose
+    is what the program does! Not the details of the implementation. What do
+    the files you write do in this lab?
+    The purose of these programs are to text and implement ArrayLists.
+
+Compile/run:
+-----------
+
+    Compile and Run using the command "unit_test"
+
+
+Acknowledgments:
+---------------
+
+    TODO: Add any Acknowledgments here. Perhaps one of your lovely TA's? Or a
+    fellow student?
+
+Files:
+-----
+
+ArrayList.h: Interface for a simple ArrayList Class.
+
+ArrayList.cpp: Implementation of a simple ArrayList Class.
+    The default constructor for this class initializes an ArrayList to a size of
+    0, and a capacity of 10. 
+
+unit_tests.h: A unit testing file for the ArrayList Class. 
+    Runs in conjunction with the unit_test framework to allow for testing of 
+    individual functions.
+
+Makefile: File to build the program.
+
+
+Data Structures:
+---------------
+
+    This main data structure of this lab is an ArrayList, which is a dynamically
+    expanding array. If the number of items is ever equal to the capacity, the
+    array will automatically expand, allowing for an arbitrary number of 
+    elements to be inserted into the ArrayList.
+
+
+Testing:
+-------
+
+    TODO: Write a short description of how you tested your ArrayList. What was
+    the most challenging part of this lab? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
