@@ -1,0 +1,8 @@
+Boston Chicago Houston SanFran ###
+Chicago Boston Houston ###
+Houston Chicago Oakland ###
+Detroit Boston Chicago Houston ###
+Vegas Houston ###
+LA SanFran Chicago ###
+SanFran Houston LA Oakland ###
+Oakland Boston Vegas ###
