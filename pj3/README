@@ -1,0 +1,99 @@
+/**********************************************************
+* Project 3: Zap (Phase 1)
+* CS 15
+* README
+* Author: Jack Craig
+*********************************************************/
+
+Compile/Run:
+    - Compile using:
+        make
+
+    - Run unit tests:
+        unit_test
+
+    - Zap (Compress)
+        ./zap zap input.txt output.zap
+    
+    - Unzap (Decompress)
+        .zap unzap input.zap output.txt
+
+Program Purpose:
+    Phase 1 of the Zap project implements foundational components for Huffman 
+        coding:  
+    1. count_freqs: Counts character frequencies in a text stream.  
+    2. serialize_tree: Converts a Huffman tree into a string via preorder 
+     traversal.  
+    3. deserialize_tree: Reconstructs a Huffman tree from a serialized string.  
+
+    Phase 2: Encode text into compressed binary files and decode them 
+    losslessly
+
+Acknowledgements:  
+    Thank you to the TAs 
+
+---
+
+Files:  
+    - phaseOne.h / phaseOne.cpp:  
+        Implements frequency counting, tree serialization/deserialization.  
+   
+    - HuffmanTreeNode.h (provided):  
+        Defines the Huffman tree node structure and comparator for priority 
+        queues.  
+   
+    - ZapUtil.h (provided):  
+        Utilities for testing tree equality and printing trees. As well as
+        encoder and decoder logic. 
+    
+    - unit_tests.h / unit_test_driver.cpp:  
+        Unit tests for Phase 1 functionality.  
+
+    - main.cpp:
+        Arguement handling.
+
+    
+
+Data Structures:  
+    - Huffman Tree: Built using HuffmanTreeNode (leaves store characters, 
+        internal nodes store frequencies).  
+
+    - Priority Queue: Used std::priority_queue with NodeComparator to build 
+        the tree (min-heap).  
+
+Architectural Overview:  
+
+    Encoder:
+        - count_freqs, build tree, generate codes, encode text, 
+        serialize tree, save to .zap.
+
+    Decoder:
+        -  Read .zap, deserialize tree, decode bits, save original text.
+
+---
+
+Testing:  
+    - Unit Tests:  
+        - Phase 1:
+            - Empty input, special characters, tree serialziation round trips.
+        - Phase 2:
+            - Round trip (de)compression, error handling.
+
+    - Extensive Diff testing.
+    
+
+ 
+
+---
+
+Challenges:  
+
+    I had a lot of trouble with testing to ensure everything was working
+    correctly.
+
+
+Time Spent:  
+- Phase 1: 15 hours
+- Phase 2: 20 hours
+
+    Total: 35 hours
