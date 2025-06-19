@@ -1,0 +1,119 @@
+/**********************************************************
+* Project 4: Gerp
+* CS 15
+* README
+* Author: Jack Craig, Clark Morris
+**********************************************************
+
+
+ Title and Authors
+----------------------------------------
+Project 4: Gerp  
+Authors: Jack Craig, Clark Morris  
+
+
+Purpose
+----------------------------------------
+Gerp is a file indexing and search system that:  
+1. Recursively traverses directories using the FSTree structure.  
+2. Indexes all words in files, supporting case-sensitive and 
+    case-insensitive searches.  
+3. Allows users to query words, switch output files, and handles edge cases 
+    like duplicates and special characters.  
+
+
+Acknowledgements
+----------------------------------------
+- TAs for guidance and debugging support.  
+- cctype library for character validation (isalnum).  
+- Course-provided FSTree and DirNode classes for directory traversal.  
+
+
+Files Provided
+----------------------------------------
+1. Core Modules:  
+   - gerp.h/gerp.cpp: Main driver for traversal, indexing, queries, and 
+    output.
+   - index.h/index.cpp: Hash tables for word indexing and file/line tracking.
+   - line_entry.h: Defines LineEntry struct for search result locations.
+
+2. Directory Traversal:  
+   - DirNode.h: Represents directory nodes.  
+   - FSTree.h: Manages n-ary tree for filesystem navigation.  
+   - processing.h/processing.cpp (Phase 1): Initial 
+    traversal and string sanitization.  
+
+3. Execution:  
+   - main.cpp: Entry point for command-line arguments.  
+
+4. Utilities:  
+   - unit_tests.h/unit_test_driver.cpp: Unit tests (not fully detailed).
+
+
+Compile and Run
+----------------------------------------
+Compile:  
+    make  
+
+Run:  
+    ./gerp <inputDirectory> <outputFile>  
+
+Commands During Execution:  
+    - @i or @insensitive: Toggle case-insensitive search.  
+    - @f <filename>: Switch output to a new file.  
+    - @q or @quit: Exit the program.  
+
+
+Architectural Overview
+----------------------------------------
+1. Modules:  
+   - FSTree: Builds directory tree using DirNode. 
+    Gerp uses FSTree::getRoot() to start traversal.
+   - DirNode: Stores file/subdirectory names and parent pointers.  
+   - Index: Maintains hash tables for words and LineEntry mappings.  
+   - Gerp: Manages traversal, queries, and output.  
+
+2. Data Flow:  
+   - main.cpp initializes Gerp, which builds the FSTree.  
+   - Gerp::processDirectory indexes files via Index::addLine.  
+   - Queries trigger Index::search* methods, results written to output.  
+
+
+Data Structures and Algorithms
+----------------------------------------
+1. Data Structures:  
+   - Hash Tables (Separate Chaining):  
+     - Case-sensitive and case-insensitive tables in Index.  
+     - Justification: Efficient for dynamic data with O(1) average lookups.  
+   - Vectors/Lists: Store file paths, line texts, and hash chains.  
+   - FSTree: Pre-built n-ary tree for directory traversal.  
+
+2. Algorithms:  
+   - Directory Traversal: Recursive post-order traversal via FSTree.  
+   - Sanitization: trim non-alphanumeric characters in O(n) time.  
+   - Hashing: DJB2 algorithm for even distribution.  
+   - Resizing: Tables double in size when load factor exceeds 0.7.  
+
+
+Testing
+----------------------------------------
+1. Directory Traversal:  
+   - Tested empty directories, nested subdirs, and path construction.  
+
+2. Sanitization:  
+   - Edge cases (e.g., "!!word!!" → "word").  
+   - Apostrophes preserved (e.g., "don't").  
+
+3. Indexing and Queries:  
+   - Case sensitivity confirmed (Hello ≠ hello).  
+   - Validated hash collisions and file switching.  
+
+4. Memory Management:  
+   - Valgrind checks for leaks.  
+
+
+Hours Spent
+----------------------------------------
+- Phase 1: 15 hours (traversal/sanitization).  
+- Phase 2: 25 hours (indexing/testing).  
+- Total: ~40 hours.  

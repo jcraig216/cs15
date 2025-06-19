@@ -1,0 +1,10 @@
+Below is a table describing the characteristics of the data sets that your
+implementation of gerp will be tested on.
+
+| Data Set Name   | Size    | Number of Files | Number of Directories |
+------------------------------------------------------------------------
+| tinyData        | 13  KB  | 7               | 4                     |
+| smallGutenberg  | 13  MB  | 377             | 717                   |
+| mediumGutenberg | 46  MB  | 899             | 1579                  |
+| largeGutenberg  | 188 MB  | 2255            | 3419                  |
+------------------------------------------------------------------------

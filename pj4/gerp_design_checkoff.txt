@@ -1,0 +1,314 @@
+Names: Jack Craig and Clark Morris
+utlns: jcraig05, cmorri17
+
+Answer the questions below, and submit your answers under the assignment
+"gerp Design Checkoff" on Gradescope. You must sign up for a design checkoff
+slot with a TA to discuss your provided answers (see spec for sign up link).
+Make sure to submit this file *prior* to your design checkoff.
+
+For each question, give as much detail as you feel is necessary.
+
+1. What classes and structs will you implement for your program? For each class,
+   provide a list of public functions of that class; for each struct, provide a
+   list of member variables.
+
+Answer:
+        
+2. Describe the index that you will build for querying. What specific data
+   structures will you use to build this index? *Important*: Bring an
+   accompanying drawing of your index structure when you come to your checkoff.
+
+Answer:
+
+3. To use your index, you will use something for lookup (the key) and you will
+   get some associated data back (the value). What are the C++ *types* of your
+   index's key and value? Examples of valid types: int, string,
+   vector<string>, vector<list<string>>; you may also define custom types using
+   structs/classes, e.g., Animal and vector<Animal> are valid types if you
+   define a struct/class named Animal. If your key/value types involve custom
+   classes/structs, they should be included in your answer to question #1.
+                
+Answer:
+
+   Key type:
+   Value type:         
+
+4. Explain what a collision is versus having multiple lines associated with 
+   a particular word. Write (and/or draw) out an example of when a 
+   collision occurs. Write (and/or draw) out an example of when multiple 
+   lines associated with a single word. 
+
+Answer:
+
+5. What do you expect the *space* complexity of your index will be? How many
+   times will a single line be stored according to your data structures?
+
+Answer:
+
+6. What is the time complexity of *building* your index? If you refer to some
+   variable, be sure to specify what the variable refers to, e.g., in "O(n)",
+   state explicitly what "n" is.
+
+Answer:
+                
+7. What is the time complexity of *using* your index for lookup? As above,
+   be specific about variables you use.
+
+Answer:
+
+8. How will you handle case-sensitive search?
+   What is the time complexity (should be close to O(1))?
+
+Answer:
+
+9. How will you handle case-insensitive search?
+   What is the time complexity (should be close to O(1))?
+
+Answer:
+
+10. How are you handling duplicate words within a line? Consider these two example 
+   lines: 
+
+      (i) the cat and the dog 
+      (ii) the cat and THE dog 
+
+   If a user does a case sensitive query on line (i) it should report 'the' only 
+   once by showing the line only once in the output. How will you do this? 
+
+   If a user does a case insensitive query on line (ii) it should report 'the' 
+   only once by showing the line only once in the output. How will you do this? 
+
+Answer:
+
+11. How will you test your implementation and what specific evidence of testing
+    will you submit?
+
+Answer:
+
+12. What is your schedule for completing this assignment? Include specific dates
+    and the tasks that you would like to accomplish by each date. Do not forget
+    testing!
+
+Answer: 
+
+
+1.
+ - Index Class:
+   - Public Functions:
+      - buildIndex (FSTree &tree): Builds index from directory tree
+      - caseSensitiveSearch(string word) vector<LineEntry>: Returns the lines 
+         matching the exact word.
+      - caseInsensitveSearch(String word) vector<LineEntry>: Returns the lines
+         matching the case-insensitive word.
+      - addLine(string filePath, int lineNUm, string line): Processes a line
+         and adds words to the index.
+   - Private Members:
+      - unordered_map<string, vector<LineEntry>> caseSensitiveMap
+      - unordered_map<string, vector<LineEntry>> caseInsensitveMap
+
+- LineEntry Struct:
+   - Member Varibles:
+      - string filePath: Full path to the file
+      - int lineNumer: Line number in the file
+      - string lineText: Original line text
+
+
+2. Index Structure:
+   - Data Structures:
+      - Two has tables (unordered_map)
+         1. Case-Sensitive: Keys are stripped words ("Apple, Banana")
+         2. Case-Insensitive: Keys are lowercase stripped words ("apple")
+      - Values are vectors of LineEntry structs containing file and line data
+   - Drawing:
+      - Keys map to buckets containing linked lists of LineEntry vectors
+      - EX: Key "Comp" -> lines from files where "Comp" appears.
+
+
+3. Key and Value Types:
+   - Key Type: string (stripped word for case-sensitive; lowercase stripped
+       word for case-insensitive)
+   - Value Type: vector<LineEntry> (list of lines where the key appears)
+
+
+4. Collision vs. Multiple Lines
+   - Collision Example: 
+      - "cat" and "dog" hash to the same bucket (different keys, same bucket)
+   - Multiple Lines Example:
+      - "apple" appears in file1:3 and file2:7 (same key, multiple entries)
+
+
+5. Space Complexity
+   - Space: O(W+L), where W = unique words, L = total lines
+   - Line Storage: A line is sotred once per unique word it contains
+
+
+6. Time Complexity (Building)
+   - O(N), where N = total words across all files. Each word is processed once
+
+7. Time Complexity (Lookup)
+   - O(1) average case (hash table access) + O(K) to traverse K mathcing entries
+
+8. Case-Sensitive Search 
+   - Method: Lookup Stripped words in caseSensitiveMap.
+   - Time: O(1) (hash table access)
+
+9. Case-InSensitive Search
+   - Method: Convert query to lowercase, then loopup in caseInsentive.
+   - Time: O(1) (hash table access)
+
+10. Handling Duplicate Words 
+   - Case-Sensitive: Track words per line with a set<string> during indexing
+      Only add each word once per line.
+   - Case-Insensitive: Normalize words to lowercase and use a set<string> to
+      deduplicate
+   
+11. Testing:
+   - Unit Testing files
+   - Run queries against smallGutenberg and compare outputs with reference
+      using diff
+
+12. 
+   - Phase 1: Implement functions after design checkoff meeting
+   - Phase 2: Complete project on wednesday.
+
+
+
+
+- Have to obviously use hash tables, so index everything and store it all in one place.
+- Hash table with each word in the text file in its own bucket.
+- Find a way to index everything so it's constant time. 
+- Store the string once with some vector outside, and then store the line number 
+- Have a bunch of pairs in your hash that stores the index and the line number
+- to handle dupes, look at line 137, store file in one bucket, then see file again and check the bucket to see
+   its already full 
+
+- Could have 2 hash tables, a bucket for "cat" and within that table it is every time the cat shows up
+- just make the search constant time
+
+
+- Try and just do a hash with a vector inside so the time will be linear
+- use a struct of a string and a vector to store the lines
+- a vector of structs for every unique version of cat that will hold a string and a vector
+   that holds line number and file number
+
+- a vector that hold the name of each file and a strcut with a name of the unique word 
+- 
+
+
+
+Will use 2 hash tables, one will be sens the other not
+   - sens
+      - Key: sanitized word "Comp15"
+      - Value: vector<LineEntry>, storing all lines where the exact word appears
+
+   -insens
+      - Key: lowercase sanitized word "comp15"
+      - Value vector<LineEntry>, storing lines where any case variant of the word appears
+
+Line entry struct:
+   - string file path containing the entire file path
+   - integer for the line number in the file
+   - string for the original line text
+
+Will be able to use separate chaining (using vector or list for collisions) 
+
+Index construction:
+   - Traverse directories using the provided FSTree and Dir node to recursively explore directories
+   - for each file, open and read line-by-line
+
+   -Process each line:
+      - split the line by using spaces to find words
+      - Sanitize each word with stripNonAlphaNum to remove non-alphanumeric chars.
+      - Track unique words per line using a set<string> to avoid dupes.
+
+   - Pop h tables
+      - for each word
+         - sense: add to sense map as new LineEntry
+         - in: convert to lowercase, add to map
+
+   EX: "The!! cat and THE dog" in file.text:3:
+      - sanitized words: "The", "cat", "and", "THE", "dog"
+      - Case-insensitive keys: "the", "cat", "and", "the", "dog"
+      - Deduplicate using a set: {"The", "cat", "and", "THE", "dog"} (case-sensitive) 
+         and {"the", "cat", "and", "dog"} (case-insensitive)
+
+Handling collisions and multiple entries:
+   - collision: two diff words hash to the same bucket 
+         - "apple" and "orange" going to index 5
+      - use separate chaining (a list or vecotr in each bucket)
+
+   - Multi entries: one word appears in multiple lines
+         - "apple" in file1:3 and file2:7
+      - handled because lineEntry objects tot the same key's vector
+
+Query Handling:
+   - sense: 
+      - Sanitie the word "Comp" -> "Comp"
+      - look up in sense map "Comp"
+      - return all LineEntry Objects in the vector
+   -in:
+      - Sanitize the word "Comp" -> "comp"
+      - Look up in insense map "comp"
+      - Return all LineEntry objects in the vector
+
+Output Deduplication
+   - For a line like "the cat and the dog", the line is stored once in the index for
+      "the", even if the word appears multiple times.
+
+Use a set during indexing ot trakc unique words per line 
+   - "the the dog" will add "the" once to the index
+
+FSTree will skip empty files during traversal
+
+stripNonAlphaNums will deal with all symbols
+
+
+CLASSES AND STRUCTS:
+   - LineEntry Struct
+      - Stores metadata about where a word appears in a file 
+      - Members:
+         -string filepath, int lineNum, string lineText
+
+   - Index class:
+      - Builds and manages the in-memory index of words and their associated lines.
+      - Private Members:
+         - Hash tables
+            - Each table uses separate chaining using a list
+            - Key: Sanitizard words or lowercase words
+            - Value: vector<LineEntry> containing all occurances of the word
+         - H table metadata:
+            - size_t capacity, size_t size, const double MAX_LOAD_FACTOR = .7 
+               - load factor is the number of elements in a hash table divided by the number of slots.
+      - Structure:
+         - Buckets: std:list of key-value pairs
+         - Resizing: doubles cap when load exceeds .7
+      - Lookup:
+         - snese: direclty hash the word
+         - in: convert query to lowercase before hasing
+      
+   - File processing
+      - traversal:
+         - use tree and node to explore directories
+         - for each file, read liens and pass to Index::addLine
+      - Line splitting:
+         - split on whitespace, then sanitize each word.
+      
+   - Query handling:
+      - Output deduping
+         - using unordered_set to track uniqey filepath:Linenum entries
+      - Formatting:
+         - print reuslts as a filepath:linenum: lineText
+      
+
+
+
+
+- int line Number which can be used to go to a vector holding the original line
+- Also hold an integer to the file number which can point to a list of the files
+   in order to prevent saving the same string over and over again
+
+- use 1 hash table instead check the original line for the query when doing case sensitive,
+   this way we don't have to worry about repeating and double printing.
+
+   - had said like oh keep it all lowercase but for senstive we check the original line to see
+      if it is really equal to the query and then we will be golden
