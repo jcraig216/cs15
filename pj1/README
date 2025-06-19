@@ -1,0 +1,87 @@
+/**********************************************************
+* Project 1: Metro Simulator
+* CS 15
+* README
+*
+*********************************************************/
+
+Compile/run:
+     - Compile using
+            make MetroSim
+     - run executable with
+            ./MetroSim stationsFile passFile [commands]
+
+
+Program Purpose:
+     The Metro Simulator is a program that simulates a train system. The
+     program allows users to either input a command file or a station file
+     in order to add passengers and stations to the system. 
+
+Acknowledgements: 
+     Thank you to the TAs for help with the design check off.
+
+
+Files: 
+
+main.cpp:
+     Main file should be short and handle simple driver
+     functions such as reading in files.
+
+MetroSim.cpp:
+     Implementation of MetroSim class.  Main
+     functionality of running the Metro Simulation, should be able to
+     move trains and deal with passengers going on/off the train.
+
+MetroSim.h:
+     Interface of MetroSim class.
+
+Passenger.cpp:
+     Implementation of the Passenger class. Represents a passenger with an
+     ID number, an arrival station, and a departure station.
+
+Passenger.h:
+     Interface of the Passenger class.
+
+PassengerQueue.cpp:
+     Implementation of the PassengerQueue class. Represents a queue of
+     passengers who are to be dropped off at a station or picked up from
+     one.
+
+stations.txt:
+     an example file containing a list of stations.
+
+test_commands.txt:
+     sample list of commands that you could give to the simulator
+
+the_metroSim:
+     reference implementation for students to see how 
+
+
+Note:  the program should handle all cases.
+
+Data Structures:
+     - Passenger: This is a list, with 3 different integers representing ID,
+               arrival station and departure.
+     - PassengerQueue: This is a list holding passengers
+     - Train: This is a vector of passenger queue objects, this is like people
+               on a train waiting to be dropped off
+     - Stations: This is a vector that holds passenger queue objects.
+
+Testing:
+ - PassengerQueue Tests:
+     - Tested enqueue, dequeue, front, size, and printing
+ - MetroSim Tests:
+     - Tested adding passengers, adding stations, moving train.
+
+ Additionally I simulated a full system run and did a multitude of diff testing
+ to ensure correct functionality. 
+
+Here, inditicate the part of the assignment that you found the most
+challenging. It could be a concept (ie. stacks) or something specific
+to the assignment. This will help us know what to review and what to
+focus on.
+
+- I had a lot of issues with printing, then a had a lot of issues with figuring 
+out how to make the unit tests in order make sure my code worked.
+
+Time Spent: 23 Hours total

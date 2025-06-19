@@ -1,0 +1,88 @@
+Name: Jack Craig
+utln: jcraig05       
+
+Answer the questions below, and submit your answers under the assignment
+"MetroSim Design Checkoff" on Gradescope. You must sign up for a design
+checkoff slot with a TA to discuss your provided answers (see spec for link).
+
+Unless otherwise specified, your answers below should be *brief*: no more
+than three sentences/question.
+
+        
+1. Are you comfortable with reading from stdin (user input) and a text file 
+in C++? Are you comfortable reading different types (e.g. ints and strings)?
+For this one, don't just answer 'yes' if you are. Write out which data 
+types you will need and which functions you will call. 
+
+Answer: I am very comforatble with user input and text file inputs. I will need
+to take in char, and ints. This will be the integer number for the arrival 
+and depature of the passenger, and a char for the command that tells me if
+I am dealing with a person or a station to move to.
+
+2. What happens when I move the train (with 'm m') when the train is at the
+last provided station? 
+
+Answer: This means metro move, which asks the train to move, if it is at the
+last station, it loops around to the first.
+
+3. What classes will you need in your program? What interfaces (i.e. 
+functions) do they each provide? 
+
+Answer: I will need something to deal with counting passengers, I will need to
+create the queue list and it's functions. I will also need a few different
+printing functions for the different messages.
+
+4. How will you implement add a passenger to a station? How will this 
+impact the data structure(s) you use to represent the stations in the 
+simulation? 
+
+Answer: Whenever we cin a p, we increment a number and that will be their
+id number
+
+5. How will you implement moving a train from one station into the next? 
+How will you put passengers onto the train? How will you take off the
+correct passengers who are leaving at the next station? How will these 
+considerations impact the data structure(s) you use to represent the 
+train in the simulation? 
+
+Answer: The train will move from one station to the next, restarting if it is
+at the end of the list. The passengers wil then be queued or dequeued depending
+on their destination. The train will be represented as a list of Passenger
+objects, and each queue will correspond to a station.
+
+6. Does command behavior change based on the source of commands? 
+Based on your answer, how could we modularize our command processing
+code? Be as detailed as you can.
+
+Answer: The behavior of commands does not change based on the source of the
+file (a txt or cin). I could make a simple command processor function.
+For example, "m m" will just prompt the train to move. If it is "p" then I will
+add a passenger.
+
+7. How do you plan to test your program? What evidence of testing do
+you plan to submit? 
+
+Answer: I will create exstensive unit testing and try and simulate as many edge
+
+8. What is your timeline for completing this project? What would you like 
+to have completed, and by which dates?   
+
+Answer: I want to try and complete everything before valentines day weekend.
+
+
+DESIGN CHECK OFF NOTES:
+
+- Need to use a list in for the stations.  Each station has a passenger list.
+And the stations will be a vector in order for it to have indexes
+
+- Need the train passenger queues to be in a vector
+
+- each car has it's own passenger queue that is already on a set destination
+
+- So read in the p, increment passengers, then place destination into the numbered
+car, then when car = stations, clear the car. 
+
+- need an istream for cin and ifstream in order to take commands
+    - need to check eof and empty files
+
+
