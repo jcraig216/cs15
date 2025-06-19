@@ -1,0 +1,116 @@
+Bad Hash Function
+inserting keys: "Stayin' Alive" "Funky Town" "Disco Inferno" "Night Fever" "Last Dance" "I Will Survive" "Car Wash" "Billie Jean" "Get Up and Boogie" "YMCA"
+Results for your code:
+     Linear Probing: reprobes = 9  max lookup = 5
+           Chaining: reprobes = 0  max bucket size= 2
+
+Your Tables:
+
+Chained table
+0:  [ ]
+1:  [ ]
+2:  [ ]
+3:  [ ]
+4:  [ key:  YMCA; value:  {7, 127}]
+5:  [ ]
+6:  [ ]
+7:  [ ]
+8:  [ key:  Car Wash; value:  {27, 115}]
+9:  [ ]
+10:  [ key:  Last Dance; value:  {21, 126}, key:  Funky Town; value:  {5, 128}]
+11:  [ key:  Billie Jean; value:  {30, 117}, key:  Night Fever; value:  {20, 109}]
+12:  [ ]
+13:  [ key:  Disco Inferno; value:  {6, 129}, key:  Stayin' Alive; value:  {3, 104}]
+14:  [ key:  I Will Survive; value:  {1, 116}]
+15:  [ ]
+16:  [ ]
+17:  [ key:  Get Up and Boogie; value:  {13, 105}]
+18:  [ ]
+19:  [ ]
+20:  [ ]
+21:  [ ]
+22:  [ ]
+
+Linear table
+0:  empty
+1:  empty
+2:  empty
+3:  empty
+4:  key:  YMCA; value:  {7, 127}
+5:  empty
+6:  empty
+7:  empty
+8:  key:  Car Wash; value:  {27, 115}
+9:  empty
+10:  key:  Funky Town; value:  {5, 128}
+11:  key:  Night Fever; value:  {20, 109}
+12:  key:  Last Dance; value:  {21, 126}
+13:  key:  Stayin' Alive; value:  {3, 104}
+14:  key:  Disco Inferno; value:  {6, 129}
+15:  key:  I Will Survive; value:  {1, 116}
+16:  key:  Billie Jean; value:  {30, 117}
+17:  key:  Get Up and Boogie; value:  {13, 105}
+18:  empty
+19:  empty
+20:  empty
+21:  empty
+22:  empty
+
+Good Hash Function
+inserting keys: "Stayin' Alive" "Funky Town" "Disco Inferno" "Night Fever" "Last Dance" "I Will Survive" "Car Wash" "Billie Jean" "Get Up and Boogie" "YMCA"
+Results for your code:
+     Linear Probing: reprobes = 3  max lookup = 1
+           Chaining: reprobes = 0  max bucket size= 2
+
+Your Tables:
+
+Chained table
+0:  [ ]
+1:  [ key:  Disco Inferno; value:  {6, 129}]
+2:  [ key:  Car Wash; value:  {27, 115}]
+3:  [ key:  Stayin' Alive; value:  {3, 104}]
+4:  [ ]
+5:  [ ]
+6:  [ ]
+7:  [ ]
+8:  [ key:  I Will Survive; value:  {1, 116}]
+9:  [ ]
+10:  [ ]
+11:  [ ]
+12:  [ ]
+13:  [ ]
+14:  [ key:  Get Up and Boogie; value:  {13, 105}]
+15:  [ ]
+16:  [ key:  Last Dance; value:  {21, 126}, key:  Funky Town; value:  {5, 128}]
+17:  [ key:  Billie Jean; value:  {30, 117}]
+18:  [ ]
+19:  [ ]
+20:  [ ]
+21:  [ key:  YMCA; value:  {7, 127}, key:  Night Fever; value:  {20, 109}]
+22:  [ ]
+
+Linear table
+0:  empty
+1:  key:  Disco Inferno; value:  {6, 129}
+2:  key:  Car Wash; value:  {27, 115}
+3:  key:  Stayin' Alive; value:  {3, 104}
+4:  empty
+5:  empty
+6:  empty
+7:  empty
+8:  key:  I Will Survive; value:  {1, 116}
+9:  empty
+10:  empty
+11:  empty
+12:  empty
+13:  empty
+14:  key:  Get Up and Boogie; value:  {13, 105}
+15:  empty
+16:  key:  Funky Town; value:  {5, 128}
+17:  key:  Last Dance; value:  {21, 126}
+18:  key:  Billie Jean; value:  {30, 117}
+19:  empty
+20:  empty
+21:  key:  Night Fever; value:  {20, 109}
+22:  key:  YMCA; value:  {7, 127}
+
